@@ -1,0 +1,20 @@
+# MATLAB temporary and generated files
+*.asv
+*.autosave
+*.m~
+*.log
+*.tmp
+*.fig
+*.mat
+slprj/
+codegen/
+
+# Results produced by a new optimization run
+results/latest_run.xlsx
+results/latest_run.png
+
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
