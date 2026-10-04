@@ -1,8 +1,10 @@
 # Two-Stage Genetic Algorithm for Multi-UAV Coverage
 
-A MATLAB implementation of a constrained, two-stage genetic algorithm for coordinating five UAVs and fifteen time-triggered occlusion clouds.
+> **High-dimensional optimization · Genetic algorithms · Computational geometry · MATLAB**
 
-The model searches over 40 decision variables and evaluates whether three moving objects' lines of sight to eleven target points are simultaneously blocked. The repository focuses on optimization design, geometric collision tests, constraint repair, and reproducible validation.
+A research-grade MATLAB implementation of a constrained, two-stage genetic algorithm for coordinating five UAVs and fifteen time-triggered occlusion clouds. The project transforms a complex geometric scheduling problem into a reproducible 40-dimensional optimization pipeline.
+
+The model searches over 40 coupled decision variables and evaluates whether three moving objects' lines of sight to eleven target points are simultaneously blocked. It demonstrates strong command of evolutionary optimization, constraint handling, geometric intersection testing, objective design, and numerical experiment management.
 
 Project timeline: the original modeling work was completed in September 2025. The code was cleaned, documented, and packaged as a portfolio repository in October 2026.
 
@@ -14,6 +16,15 @@ Project timeline: the original modeling work was completed in September 2025. Th
 - Soft objective: partial-coverage integral used to guide the search when the hard objective is sparse.
 - Constraint repair for speed, release spacing, fuse time, and the 67-second evaluation horizon.
 - Deterministic runs through an explicit random seed.
+
+## Technical capabilities demonstrated
+
+- Encoded a mixed geometric and temporal decision problem as a 40-dimensional chromosome.
+- Designed a coarse-to-fine search strategy to balance global exploration and local refinement.
+- Implemented line-segment/sphere intersection tests across 33 simultaneous visibility constraints.
+- Built feasibility repair for speed bounds, release spacing, fuse timing, and horizon limits.
+- Combined a strict discontinuous objective with a smooth auxiliary objective to improve search guidance.
+- Added deterministic seeding, validation logic, spreadsheet export, and coverage-timeline visualization.
 
 ## Model overview
 
@@ -81,11 +92,11 @@ The full optimization can take time because the second stage evaluates the geome
 
 ## Validation status
 
-The strict formulation limits release and detonation to the 67-second horizon and requires all 33 lines of sight to be blocked simultaneously. Existing saved exploratory runs did not produce a positive hard-objective value under this strict definition.
+The implementation deliberately applies a demanding validation standard: release and detonation must remain inside the 67-second horizon, and all 33 lines of sight must be blocked simultaneously. Existing saved exploratory runs did not produce a positive hard-objective value under this strict definition.
 
 An earlier exploratory figure reported 6.25 seconds for one moving object under a looser evaluation window. It is deliberately excluded from the headline result because it does not satisfy the final global criterion. This distinction is important: a visually attractive chart should not replace a correctly defined objective.
 
-The repository should therefore be read as a transparent optimization implementation and research baseline, not as proof that a globally optimal positive-coverage solution has been found.
+The result highlights the sparsity and difficulty of the feasible region. The repository should therefore be read as a rigorous optimization implementation and research baseline, not as proof that a globally optimal positive-coverage solution has been found.
 
 ## Known limitations
 
